@@ -38,16 +38,66 @@ Inferencial: la pregunta busca generalizar, ya que dado un usuario nuevo lo asig
 **Considerando el escenario:** **Explica con detalle cómo se podría proceder al análisis y resolución del problema mediante Data Science, indicando de donde se obtendrían los datos, qué tratamiento deberían recibir, qué preguntas hacerse para resolver el problema, qué datos y gráficos se obtendrían, y cómo se comunicarían estos.**
 
 -   Los datos podrían ser obtenidos de resgitros de conexiones TCP como IPs origen, destino, etc, también de inventario de PCs y de los usuarios y finalmente mirando el listado de servicios web utilizados.
+
 -   Para el tratamiento de los datos seria necesario hacer una limpieza y normalización de IPs, puertos, timestamps, etc. También seria necesario filtrar el tráfico legítimo.
+
 -   Para resolver el problema nos podemos hacer las siguientes preguntas:
+
     -   Que ordenadores muestran patrones de servidor?
     -   Que puertos tiene actividad sospechosa?
     -   Es persistene o temporal? Coincide con las excepciones registradas?
--   De los datos recabados se obrendria una mesa de sospechosos con sus ordenadores, puertos, número de orígenes externos y diás activos. También obtendríamos los siguientes gráficos:
+
+-   De los datos recabados se obrendria una mesa de sospechosos con sus ordenadores, puertos, número de orígenes externos y diás activos.
+
+    También obtendríamos los siguientes gráficos:
+
     -   Histogramas de puesrtos utilizados
     -   Hetmaps de actividad por hora/dia
     -   Mapas de países/ASNs de origen
+
 -   Para comunicarlo todo se puede hacer a través de un informe corto a la dirección que tenga una lista reducida de los posibles sospechosos. Además de enviarles un mensaje a los trabajadores implicados con pruebas claras y un tono constructivo.
+
+## Introducción a R
+
+### Pregunta 1
+
+**1. Cuales son las dimensiones del dataset cargado (número de filas y columnas)**
+
+Respuesta
+
+**2. Valor medio de la columna Bytes**
+
+Respuesta
+
+### Pregunta 2
+
+**De las diferentes IPs de origen accediendo al servidor, ¿cuantas pertenecen a una IP claramente educativa (que contenga ".edu")?**
+
+Respuesta
+
+### Pregunta 3
+
+**De todas las peticiones recibidas por el servidor cual es la hora en la que hay mayor volumen de peticiones HTTP de tipo "GET"?**
+
+Respuesta
+
+### Pregunta 4
+
+**De las peticiones hechas por instituciones educativas (.edu), ¿Cuantos bytes en total se han transmitido, en peticiones de descarga de ficheros de texto ".txt"?**
+
+Respuesta
+
+### Pregunta 5
+
+**Si separamos la petición en 3 partes (Tipo, URL, Protocolo), usando str_split y el separador " " (espacio), ¿cuantas peticiones buscan directamente la URL = "/"?**
+
+Respuesta
+
+### Pregunta 6
+
+**Aprovechando que hemos separado la petición en 3 partes (Tipo, URL, Protocolo) ¿Cuantas peticiones NO tienen como protocolo "HTTP/0.2"?**
+
+Respuesta
 
 ```{r cars}
 summary(cars)
