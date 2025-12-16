@@ -72,6 +72,8 @@ cat(sprintf("El dataset tiene %d columnas y %d filas", ncol(data), nrow(data)))
 
 **2. Valor medio de la columna Bytes**
 
+Como hay algunas filas donde el valor de bytes es "-" se ha decidido convertir estos en NA para evitar problemas a la hora de calcular el valor final.
+
 ```{r}
 data_bytes <- data$bytes
 data_bytes[data_bytes == "-"] <- NA
@@ -93,8 +95,6 @@ cat(sprintf("Hay %d de Ips Educativas", IP_edu))
 ### Pregunta 3
 
 **De todas las peticiones recibidas por el servidor cual es la hora en la que hay mayor volumen de peticiones HTTP de tipo "GET"?**
-
-Hemos asumido que la estructura del tiempo es [dia:hora:minuto:segundo]
 
 ```{r}
 data_get <- data[data$method == "\"GET", ]
@@ -121,10 +121,7 @@ cat(sprintf("Se han transmitido %d bytes de archivos .txt de instituciones educa
 
 **Si separamos la petición en 3 partes (Tipo, URL, Protocolo), usando str_split y el separador " " (espacio), ¿cuantas peticiones buscan directamente la URL = "/"?**
 
-```{r}
-sum_url <- sum(data$URL == "/")
-cat(sprintf("Han habido %d peticiones que buscan la URL /", sum_url))
-```
+Respuesta
 
 ### Pregunta 6
 
