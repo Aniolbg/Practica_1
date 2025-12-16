@@ -1,12 +1,14 @@
 ---
 title: "Practica_1"
-author: "Aniol, Omar, Marcel"
+author: "Aniol, LOmar, Marcel"
 date: "2025-12-15"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(stringr)
 ```
 
 # Práctica 1
@@ -81,7 +83,11 @@ cat(sprintf("El valor medio de la columna bytes es %.2f", medio))
 
 **De las diferentes IPs de origen accediendo al servidor, ¿cuantas pertenecen a una IP claramente educativa (que contenga ".edu")?**
 
-Respuesta
+```{r}
+data_ip <- data$IP
+IP_edu <- sum(str_detect(data_ip, "\\.edu"))
+cat(sprintf("Hay %d de Ips Educativas", IP_edu))
+```
 
 ### Pregunta 3
 
