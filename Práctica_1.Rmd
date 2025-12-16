@@ -104,7 +104,8 @@ timestamp_get <- data_get$timestamp
 hours <- sapply(strsplit(data_get$timestamp, ":"), `[`, 2)
 freq_horas <- table(hours)
 hora_max <- names(which.max(freq_horas))
-cat(sprintf("La hora en la que hay mayores peticiones GET son las %s ", hora_max))
+num_peticions <- freq_horas[hora_max]
+cat(sprintf("La mayor cantidad de peticiones siendo %s es a las %s horas", num_peticions, hora_max))
 ```
 
 ### Pregunta 4
