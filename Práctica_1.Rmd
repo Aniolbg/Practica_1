@@ -63,7 +63,9 @@ Inferencial: la pregunta busca generalizar, ya que dado un usuario nuevo lo asig
 
 **1. Cuales son las dimensiones del dataset cargado (número de filas y columnas)**
 
-Respuesta
+```{r}
+cat(sprintf("El dataset tiene %d columnas y %d filas", ncol(data), nrow(data)))
+```
 
 **2. Valor medio de la columna Bytes**
 
