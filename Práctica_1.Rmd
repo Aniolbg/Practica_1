@@ -69,7 +69,13 @@ cat(sprintf("El dataset tiene %d columnas y %d filas", ncol(data), nrow(data)))
 
 **2. Valor medio de la columna Bytes**
 
-Respuesta
+```{r}
+data_bytes <- data$bytes
+data_bytes[data_bytes == "-"] <- NA
+data_bytes <- as.numeric(data_bytes)
+medio <- mean(data_bytes, na.rm = TRUE)
+cat(sprintf("El valor medio de la columna bytes es %.2f", medio))
+```
 
 ### Pregunta 2
 
