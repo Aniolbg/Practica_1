@@ -96,6 +96,8 @@ cat(sprintf("Hay %d de Ips Educativas", IP_edu))
 
 **De todas las peticiones recibidas por el servidor cual es la hora en la que hay mayor volumen de peticiones HTTP de tipo "GET"?**
 
+Hemos asumido que la estructura del tiempo es [dia:hora:minutos:segundos]
+
 ```{r}
 data_get <- data[data$method == "\"GET", ]
 timestamp_get <- data_get$timestamp
@@ -121,7 +123,10 @@ cat(sprintf("Se han transmitido %d bytes de archivos .txt de instituciones educa
 
 **Si separamos la petición en 3 partes (Tipo, URL, Protocolo), usando str_split y el separador " " (espacio), ¿cuantas peticiones buscan directamente la URL = "/"?**
 
-Respuesta
+```{r}
+sum_url <- sum(data$URL == "/")
+cat(sprintf("Han habido %d peticiones que buscan la URL /", sum_url))
+```
 
 ### Pregunta 6
 
