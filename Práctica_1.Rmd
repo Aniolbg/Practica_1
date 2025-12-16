@@ -69,7 +69,15 @@ Inferencial: la pregunta busca generalizar, ya que dado un usuario nuevo lo asig
 cat(sprintf("El dataset tiene %d columnas y %d filas", ncol(data), nrow(data)))
 ```
 
-\*\*2. Valor medio de la columna Bytes\*`{r} data_bytes <- data$bytes data_bytes[data_bytes == "-"] <- NA data_bytes <- as.numeric(data_bytes) medio <- mean(data_bytes, na.rm = TRUE) cat(sprintf("El valor medio de la columna bytes es %.2f", medio))`
+**2. Valor medio de la columna Bytes**
+
+```{r}
+data_bytes <- data$bytes
+data_bytes[data_bytes == "-"] <- NA
+data_bytes <- as.numeric(data_bytes)
+medio <- mean(data_bytes, na.rm = TRUE)
+cat(sprintf("El valor medio de la columna bytes es %.2f", medio))
+```
 
 ### Pregunta 2
 
@@ -92,15 +100,19 @@ hours <- sapply(strsplit(data_get$timestamp, ":"), `[`, 2)
 freq_horas <- table(hours)
 hora_max <- names(which.max(freq_horas))
 cat(sprintf("La hora en la que hay mayores peticiones GET son las %s ", hora_max))
-
-
 ```
 
 ### Pregunta 4
 
 **De las peticiones hechas por instituciones educativas (.edu), ¿Cuantos bytes en total se han transmitido, en peticiones de descarga de ficheros de texto ".txt"?**
 
-Respuesta
+```{r}
+ata_edu <- data[str_detect(data$IP, "\\.edu"), ]
+ata_edu <- ata_edu[str_detect(ata_edu$URL, "\\.txt"), ]
+txt_bytes <- as.numeric(ata_edu$bytes)
+txt_bytes <- sum(txt_bytes, na.rm = TRUE)
+cat(sprintf("Se han transmitido %d bytes de archivos .txt de instituciones educativas", txt_bytes))
+```
 
 ### Pregunta 5
 
