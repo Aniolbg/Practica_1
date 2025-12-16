@@ -1,7 +1,7 @@
 ---
 title: "Practica_1"
 author: "Aniol, LOmar, Marcel"
-date: "2025-12-15"
+date: "2025-12-16"
 output: html_document
 ---
 
@@ -85,7 +85,16 @@ cat(sprintf("Hay %d de Ips Educativas", IP_edu))
 
 **De todas las peticiones recibidas por el servidor cual es la hora en la que hay mayor volumen de peticiones HTTP de tipo "GET"?**
 
-Respuesta
+```{r}
+data_get <- data[data$method == "\"GET", ]
+timestamp_get <- data_get$timestamp
+hours <- sapply(strsplit(data_get$timestamp, ":"), `[`, 2)
+freq_horas <- table(hours)
+hora_max <- names(which.max(freq_horas))
+cat(sprintf("La hora en la que hay mayores peticiones GET son las %s ", hora_max))
+
+
+```
 
 ### Pregunta 4
 
