@@ -1,6 +1,6 @@
 ---
 title: "Practica_1"
-author: "Aniol, LOmar, Marcel"
+author: "Aniol, Luis Omar, Marcel"
 date: "2025-12-16"
 output: html_document
 ---
