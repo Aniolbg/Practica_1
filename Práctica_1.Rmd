@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(readr)
 library(stringr)
+data <- read.table("epa-http.csv", sep = "", col.names = c("IP", "timestamp", "method", "URL", "protocol", "code", "bytes"), fill = TRUE, quote = "", stringsAsFactors = FALSE, header = FALSE)
 ```
 
 # Práctica 1
